@@ -166,6 +166,7 @@ function game(balls, playerName, player1Score) {
       return score;
 
   }
+  console.log("Your current score is:",score);
   return game(balls + 1, playerName, player1Score);
 }
 
@@ -213,7 +214,7 @@ function repeat() {
       player2Score);
   }
   else if (player1Score === player2Score) {
-    console.log("********tDRAW********");
+    console.log("********DRAW********");
   }
   else {
     console.log("\t\t\t\t\t   " + Player1Name + "score : " + player1Score, Player2Name + "score : " +
