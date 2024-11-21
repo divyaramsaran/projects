@@ -1,6 +1,5 @@
 console.log("\n\t\t\t------------------Welcome To Play Book" +
   " Cricket-----------------------\n");
-let HighScore = 0;
 
 function getLine() {
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
@@ -153,17 +152,17 @@ function game(balls, playerName, player1Score) {
 
     case 8:
       console.log("-----LBW------");
-      console.log("your score is :", +score);
+      console.log("your score is :", score);
       return score;
 
     case 9:
       console.log("OUT")
-      console.log("Your Score Is :", +score);
+      console.log("Your Score Is :", score);
       return score;
 
     case 10:
       console.log("Catch Out");
-      console.log("Your Score Is :", +score);
+      console.log("Your Score Is :", score);
       return score;
 
   }
