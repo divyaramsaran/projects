@@ -1,18 +1,3 @@
-function help() {
-  console.clear();
-  const aboutToss = "--> Always player1 chooses the toss.";
-  const aboutBalls = "\n--> first batting player can play UNLIMITED BALLS till they get out.\n--> second bating player can play till they reach the target.";
-
-  const extras = "\n--> Extra 1 run for No Balls and wide balls.\n";
-  const typesOfOuts = "\n 1. Catch out \n 2. LBW \n 3. BOWLED"
-  console.log(aboutToss, aboutBalls, extras, "\n    TYPES OF OUTS", typesOfOuts);
-}
-
-function aboutGame() {
-  console.log("------- ABOUT GAME -------");
-
-}
-
 console.log("\n\t\t\t------------------Welcome To Play Book" +
   " Cricket-----------------------\n");
 let HighScore = 0;
@@ -30,8 +15,8 @@ function details(playerNumber) {
   return prompt("Enter Player " + playerNumber + " Name:", "player" + playerNumber);
 }
 
-const Player1Name = details(1);
-const Player2Name = details(2);
+let Player1Name = details(1);
+let Player2Name = details(2);
 
 function displayVs() {
   console.log("\n", Player1Name + "    " + "-----🆚-----" + "    " + Player2Name + "\n");
@@ -45,14 +30,28 @@ function wait() {
   }
 }
 
+function tails() {
+  const tails = "\t\t\t\t\t┃🪙🪙🪙🪙🪙🪙🪙🪙🪙┃";
+  const top = "\t\t\t\t\t┏━━━━━━━━━━━━━━━━━━┓";
+  const mid = "\t\t\t\t\t┃\t 🪙\t   ┃"
+  const bottom = "\t\t\t\t\t┗━━━━━━━━━━━━━━━━━━┛";
+  const symbol = top + "\n" + tails + "\n" + mid + "\n" + mid + "\n" + mid
+    + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + bottom;
 
-function printHead() {
-  console.log("\t\t\t\t\t\t\t\t🪙        🪙\n\t\t\t\t\t\t\t\t🪙        🪙\n\t\t\t\t\t\t\t\t🪙        🪙\n\t\t\t\t\t\t\t\t🪙🪙🪙🪙🪙🪙\n\t\t\t\t\t\t\t\t🪙        🪙\n\t\t\t\t\t\t\t\t🪙        🪙\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t🪙        🪙")
+  console.log(symbol);
 }
 
-function printTail() {
-  console.log("\t\t\t\t\t🪙🪙🪙🪙🪙🪙🪙\n\t\t\t\t\t      🪙\n\t\t\t\t\t      🪙\n\t\t\t\t\t      🪙\n\t\t\t\t\t      🪙\n\t\t\t\t\t      🪙\n\t\t\t\t\t      🪙");
+function head() {
+  const top = "\t\t\t\t\t\t\t        ┏━━━━━━━━━━━━━━━━━━┓";
+  const mid = "\t\t\t\t\t\t\t        ┃🪙\t      \t 🪙┃"
+  const horizontalLine = "\t\t\t\t\t\t\t        ┃🪙🪙🪙🪙🪙🪙🪙🪙🪙┃"
+  const bottom = "\t\t\t\t\t\t\t        ┗━━━━━━━━━━━━━━━━━━┛";
+  const headSymble = top + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + horizontalLine + "\n" + mid + "\n" + mid + "\n" + mid + "\n" +
+    mid + "\n" + bottom;
+
+  console.log(headSymble);
 }
+
 
 function getHeadOrTail(noOfTimes) {
   console.clear();
@@ -60,19 +59,19 @@ function getHeadOrTail(noOfTimes) {
     const isHeads = Math.round(Math.random()) % 2 === 0;
 
     if (isHeads) {
-      printHead();
+      head();
     } else {
-      printTail();
+      tails();
     }
 
     return isHeads;
   }
 
-  printHead();
+  head();
   wait();
   console.clear();
 
-  printTail();
+  tails();
   wait();
 
   return getHeadOrTail(noOfTimes - 1);
@@ -80,9 +79,9 @@ function getHeadOrTail(noOfTimes) {
 
 function whoWonToss() {
   console.log(" 1.Heads\n 2.Tails")
-  const headOrTail = +prompt("player1 decides Heads Or Tails");
+  const headOrTail = +prompt("\nplayer1 decides Heads Or Tails");
   if (headOrTail === 2 || headOrTail === 1) {
-    const toss = getHeadOrTail(16);
+    const toss = getHeadOrTail(10);
     if (headOrTail === 1) {
       if (toss) {
         return Player1Name;
@@ -191,13 +190,19 @@ function game(balls, playerName, player1Score) {
 function repeat() {
   let player1Score = 0;
   let player2Score = 0;
-  const tossWinner = whoWonToss();
+  let tossWinner = whoWonToss();
   console.log(tossWinner + " You Won The Toss\n");
-  const choosing = decisionOfPlayfirst();
-  let batsman = Player2Name;
+  let choosing = decisionOfPlayfirst();
+  let batsman = tossWinner;
 
-  if (choosing === 1) {
+  if (choosing === 2 && tossWinner === Player2Name) {
     batsman = Player1Name;
+  }
+
+  if (choosing === 2 && tossWinner === Player1Name) {
+    batsman = Player2Name;
+    Player2Name = Player1Name;
+    Player1Name = batsman;
   }
 
   player1Score = game(1, batsman);
@@ -220,13 +225,15 @@ function repeat() {
   player2Score = game(1, batsman, player1Score);
 
   if (player1Score > player2Score) {
-    console.log("Congrats " + Player1Name + " Won The Match");
-    console.log("\nplayer1 score : " + player1Score, "player2 score : " +
+    console.log("\n\t\t\t\t\t   Congrats " + Player1Name + " Won The Match");
+
+    console.log("\t\t\t\t\t   " + Player1Name + " score : " + player1Score, Player2Name + " score : " +
       player2Score);
   } else {
-    console.log("\nplayer1 score : " + player1Score, "player2 score : " +
+    console.log("\t\t\t\t\t   " + Player1Name + "score : " + player1Score, Player2Name + "score : " +
       player2Score);
-    console.log("Congrats " + Player2Name + " Won The Match");
+
+    console.log("\n\t\t\t\t\t   Congrats " + Player2Name + " Won The Match");
   }
 
   score = 0;
