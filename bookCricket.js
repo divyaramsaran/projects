@@ -128,25 +128,13 @@ function game(balls, playerName, player1Score) {
   let ballScore = Math.ceil(Math.random() * 10);
 
   switch (ballScore) {
-
     case 1:
-      console.log("your ball " + balls + " score :" + '1');
-      score = score + 1;
-      break;
-
     case 2:
-      console.log("your ball " + balls + " score :" + '2');
-      score = score + 2;
-      break;
-
     case 3:
-      console.log("your ball " + balls + " score :" + '3');
-      score = score + 3;
-      break;
-
     case 4:
-      console.log("your ball " + balls + " score :" + '4');
-      score = score + 4;
+    case 6:
+      console.log("your ball " + balls + " score :" + ballScore);
+      score = score + ballScore;
       break;
 
     case 5:
@@ -154,11 +142,6 @@ function game(balls, playerName, player1Score) {
       console.log("1 run will be added");
       score = score + 1;
       balls -= 1;
-      break;
-
-    case 6:
-      console.log("your ball " + balls + " score :" + '6');
-      score = score + 6;
       break;
 
     case 7:
@@ -229,7 +212,11 @@ function repeat() {
 
     console.log("\t\t\t\t\t   " + Player1Name + " score : " + player1Score, Player2Name + " score : " +
       player2Score);
-  } else {
+  }
+  else if (player1Score === player2Score) {
+    console.log("********tDRAW********");
+  }
+  else {
     console.log("\t\t\t\t\t   " + Player1Name + "score : " + player1Score, Player2Name + "score : " +
       player2Score);
 
