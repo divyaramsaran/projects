@@ -1,56 +1,108 @@
-console.log("\n\t\t\t------------------Welcome To Play Book" +
-  " Cricket-----------------------\n");
+console.log(
+  "\n\t\t\t------------------Welcome To Play Book" +
+    " Cricket-----------------------\n"
+);
 
 function getLine() {
-  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log(
+    "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  );
 }
 
 function getTargetMessage(batsman, target) {
-  console.log("                                       It's", batsman, "turn to play    your target is :-", target + 1);
+  console.log(
+    "                                       It's",
+    batsman,
+    "turn to play    your target is :-",
+    target + 1
+  );
 }
 
 function details(playerNumber) {
-
-  return prompt("Enter Player " + playerNumber + " Name:", "player" + playerNumber);
+  return prompt(
+    "Enter Player " + playerNumber + " Name:",
+    "player" + playerNumber
+  );
 }
 
 let Player1Name = details(1);
 let Player2Name = details(2);
 
 function displayVs() {
-  console.log("\n", Player1Name + "    " + "-----🆚-----" + "    " + Player2Name + "\n");
+  console.log(
+    "\n",
+    Player1Name + "    " + "-----🆚-----" + "    " + Player2Name + "\n"
+  );
 }
 
 displayVs();
 
 function wait() {
   const number = Math.ceil(Math.random() * 1000);
-  for (let iteration = 0; iteration < number * 1000000; iteration++) {
-  }
+  for (let iteration = 0; iteration < number * 1000000; iteration++) {}
 }
 
 function tails() {
   const tails = "\t\t\t\t\t┃🪙🪙🪙🪙🪙🪙🪙🪙🪙┃";
   const top = "\t\t\t\t\t┏━━━━━━━━━━━━━━━━━━┓";
-  const mid = "\t\t\t\t\t┃\t 🪙\t   ┃"
+  const mid = "\t\t\t\t\t┃\t 🪙\t   ┃";
   const bottom = "\t\t\t\t\t┗━━━━━━━━━━━━━━━━━━┛";
-  const symbol = top + "\n" + tails + "\n" + mid + "\n" + mid + "\n" + mid
-    + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + bottom;
+  const symbol =
+    top +
+    "\n" +
+    tails +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    bottom;
 
   console.log(symbol);
 }
 
 function head() {
   const top = "\t\t\t\t\t\t\t        ┏━━━━━━━━━━━━━━━━━━┓";
-  const mid = "\t\t\t\t\t\t\t        ┃🪙\t      \t 🪙┃"
-  const horizontalLine = "\t\t\t\t\t\t\t        ┃🪙🪙🪙🪙🪙🪙🪙🪙🪙┃"
+  const mid = "\t\t\t\t\t\t\t        ┃🪙\t      \t 🪙┃";
+  const horizontalLine = "\t\t\t\t\t\t\t        ┃🪙🪙🪙🪙🪙🪙🪙🪙🪙┃";
   const bottom = "\t\t\t\t\t\t\t        ┗━━━━━━━━━━━━━━━━━━┛";
-  const headSymble = top + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + mid + "\n" + horizontalLine + "\n" + mid + "\n" + mid + "\n" + mid + "\n" +
-    mid + "\n" + bottom;
+  const headSymble =
+    top +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    horizontalLine +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    mid +
+    "\n" +
+    bottom;
 
   console.log(headSymble);
 }
-
 
 function getHeadOrTail(noOfTimes) {
   console.clear();
@@ -77,7 +129,7 @@ function getHeadOrTail(noOfTimes) {
 }
 
 function whoWonToss() {
-  console.log(" 1.Heads\n 2.Tails")
+  console.log(" 1.Heads\n 2.Tails");
   const headOrTail = +prompt("\nplayer1 decides Heads Or Tails");
   if (headOrTail === 2 || headOrTail === 1) {
     const toss = getHeadOrTail(10);
@@ -101,7 +153,7 @@ function whoWonToss() {
 
 function decisionOfPlayfirst() {
   console.log(" 1.Bating🏏\n 2.Bowling⚾️");
-  let ballOrBat = +prompt("Choose 1 To Bat Or 2 To Bowl");
+  const ballOrBat = +prompt("Choose 1 To Bat Or 2 To Bowl");
   if (ballOrBat === 1 || ballOrBat === 2) {
     return ballOrBat;
   }
@@ -121,10 +173,17 @@ function game(balls, playerName, player1Score) {
     return score;
   }
 
-  prompt(playerName + " press enter to get " + "⚾️ Ball" + " " + balls + " "
-    + "score\n");
+  prompt(
+    playerName +
+      " press enter to get " +
+      "⚾️ Ball" +
+      " " +
+      balls +
+      " " +
+      "score\n"
+  );
 
-  let ballScore = Math.ceil(Math.random() * 10);
+  const ballScore = Math.ceil(Math.random() * 10);
 
   switch (ballScore) {
     case 1:
@@ -156,7 +215,7 @@ function game(balls, playerName, player1Score) {
       return score;
 
     case 9:
-      console.log("OUT")
+      console.log("OUT");
       console.log("Your Score Is :", score);
       return score;
 
@@ -164,18 +223,17 @@ function game(balls, playerName, player1Score) {
       console.log("Catch Out");
       console.log("Your Score Is :", score);
       return score;
-
   }
-  console.log("Your current score is:",score);
+  console.log("Your current score is:", score);
   return game(balls + 1, playerName, player1Score);
 }
 
 function repeat() {
   let player1Score = 0;
   let player2Score = 0;
-  let tossWinner = whoWonToss();
+  const tossWinner = whoWonToss();
   console.log(tossWinner + " You Won The Toss\n");
-  let choosing = decisionOfPlayfirst();
+  const choosing = decisionOfPlayfirst();
   let batsman = tossWinner;
 
   if (choosing === 2 && tossWinner === Player2Name) {
@@ -210,22 +268,26 @@ function repeat() {
   if (player1Score > player2Score) {
     console.log("\n\t\t\t\t\t   Congrats " + Player1Name + " Won The Match");
 
-    console.log("\t\t\t\t\t   " + Player1Name + " score : " + player1Score, Player2Name + " score : " +
-      player2Score);
-  }
-  else if (player1Score === player2Score) {
+    console.log(
+      "\t\t\t\t\t   " + Player1Name + " score : " + player1Score,
+      Player2Name + " score : " + player2Score
+    );
+  } else if (player1Score === player2Score) {
     console.log("********DRAW********");
-  }
-  else {
-    console.log("\t\t\t\t\t   " + Player1Name + "score : " + player1Score, Player2Name + "score : " +
-      player2Score);
+  } else {
+    console.log(
+      "\t\t\t\t\t   " + Player1Name + "score : " + player1Score,
+      Player2Name + "score : " + player2Score
+    );
 
     console.log("\n\t\t\t\t\t   Congrats " + Player2Name + " Won The Match");
   }
 
   score = 0;
 
-  console.log("-------------------------------------------------------------------------------------------------------------------------------");
+  console.log(
+    "-------------------------------------------------------------------------------------------------------------------------------"
+  );
 
   if (confirm("\nWant To Play Again")) {
     console.clear();
