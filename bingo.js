@@ -23,8 +23,7 @@ function wait() {
 }
 
 function welcomeMessage() {
-  // console.log("\n\t\t\t\t\t    ", "---- Welcome to Play ⚡️Bingo⚡️ -----");
-  let string = `
+  const string = `
 
 ▗▖ ▗▖▗▄▄▄▖▗▖    ▗▄▄▖ ▗▄▖ ▗▖  ▗▖▗▄▄▄▖    ▗▄▄▄▖▗▄▖     ▗▄▄▖ ▗▖    ▗▄▖▗▖  ▗▖    ▗▄▄▖ ▗▄▄▄▖▗▖  ▗▖ ▗▄▄▖ ▗▄▖ 
 ▐▌ ▐▌▐▌   ▐▌   ▐▌   ▐▌ ▐▌▐▛▚▞▜▌▐▌         █ ▐▌ ▐▌    ▐▌ ▐▌▐▌   ▐▌ ▐▌▝▚▞▘     ▐▌ ▐▌  █  ▐▛▚▖▐▌▐▌   ▐▌ ▐▌
